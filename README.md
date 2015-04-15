@@ -29,7 +29,7 @@ naid is following (please input as String).
 ```ruby
 require 'sist02'
 
-naid = "40020388722"
+naid = "40020388722" #this is exmaple.
 
 p Sist02.article_ref(naid)
 
