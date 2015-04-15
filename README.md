@@ -33,7 +33,7 @@ require 'sist02'
 
 naid = "40020388722" #this is exmaple.
 
-p Sist02.article_ref(naid)
+p Sist02::CiNii.article_ref(naid)
 
 ```
 ## Development
