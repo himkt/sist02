@@ -2,6 +2,8 @@
 
 This gem provides easy way to make SIST-02 formed references.
 
+Sist02:CiNii is based on [caps](https://github.com/Yousack/caps)
+
 ## Installation
 
 Add this line to your application's Gemfile:
