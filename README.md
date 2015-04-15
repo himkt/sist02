@@ -31,10 +31,13 @@ naid is following (please input as String).
 ```ruby
 require 'sist02'
 
-naid = "40020388722" #this is exmaple.
-
+naid = "110009886645"
 p Sist02::CiNii.article_ref(naid)
+#=> "粟津 妙華, 高田 雅美, 城 和貴. 活字データの分類を用いた進化計算による近代書籍からのルビ除去. 情報処理学会論文誌. 数理モデル化と応用. 2015, 8(1), p. 72-79."
 
+naid = "40020388722"
+p Sist02::CiNii.article_ref(naid)
+#=> "近藤 宏. 臨床スポーツ鍼灸研究会(10)下肢のスポーツ障害 : 運動連鎖を応用した実践的アプローチ(1). Training journal. 2015, 37(4), p. 37-41."
 ```
 ## Development
 

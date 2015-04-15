@@ -11,7 +11,12 @@ module Sist02
         json = JSON.parser.new(html)
         hash = json.parse["@graph"][0]
         title =  hash["dc:title"][0]["@value"]
-        creator = hash["dc:creator"][0][0]["@value"]
+        creator_raw = hash["dc:creator"]
+        creator = ''
+        creator_raw.each do |item|
+          creator += "#{item[0]["@value"]}, "
+        end
+        creator = creator.gsub(/\,\s$/, '')
         publication_name = hash["prism:publicationName"][0]["@value"]
         year = hash["dc:date"].match(/\d{4}/)
         volume = hash["prism:volume"]
