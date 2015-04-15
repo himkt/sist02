@@ -20,8 +20,20 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+You get naid in [cinii article](http://ci.nii.ac.jp/) page.
 
+naid is following (please input as String).
+
+![naid description](screen-shot/naid.png)
+
+```ruby
+require 'sist02'
+
+naid = "40020388722"
+
+p Sist02.article_ref(naid)
+
+```
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
