@@ -47,8 +47,9 @@ module Sist02
 
         ris = open("http://ci.nii.ac.jp/ncid/#{ncid}.ris").read
         pages = ris.match(/EP  - ([a-z]*, )?\d+p/).to_s.gsub(/EP  - /, '')
-
-        result = "#{author}. #{title}. #{edition}, #{publisher}, #{year}, #{pages}."
+        pages = "ページ数不明" if pages == ''
+        result = "#{author}. #{title}. #{edition}, #{publisher}, #{year}, #{pages}." unless edition == nil
+        result = "#{author}. #{title}. #{publisher}, #{year}, #{pages}." if edition == nil # for bibliographic information that doesn't have edition display
       rescue => e
           result = e
       end
