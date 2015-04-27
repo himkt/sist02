@@ -29,5 +29,30 @@ module Sist02
       end
       return result
     end
+
+    def book_ref(ncid)
+      begin
+        html = open("http://ci.nii.ac.jp/ncid/#{ncid}.json").read
+        json = JSON.parser.new(html)
+        hash = json.parse["@graph"][0]
+        title = hash["dc:title"][0]["@value"]
+        publisher = hash["dc:publisher"][0]
+        year = hash["dc:date"].match(/\d{4}/)
+        edition = hash["prism:edition"]
+        author_ary = Array.new
+        hash["foaf:maker"].each do |item|
+          author_ary << item["foaf:name"][0]["@value"].gsub(/(\s|　|,)+/, '')
+        end
+        author = author_ary.join(", ")
+
+        ris = open("http://ci.nii.ac.jp/ncid/#{ncid}.ris").read
+        pages = ris.match(/EP  - ([a-z]*, )?\d+p/).to_s.gsub(/EP  - /, '')
+
+        result = "#{author}. #{title}. #{edition}, #{publisher}, #{year}, #{pages}."
+      rescue => e
+          result = e
+      end
+      return result
+    end
   end
 end
