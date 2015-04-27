@@ -46,7 +46,7 @@ module Sist02
         author = author_ary.join(", ")
 
         ris = open("http://ci.nii.ac.jp/ncid/#{ncid}.ris").read
-        pages = ris.match(/EP  - \d+p/).to_s.gsub(/EP  - /, '')
+        pages = ris.match(/EP  - ([a-z]*, )?\d+p/).to_s.gsub(/EP  - /, '')
 
         result = "#{author}. #{title}. #{edition}, #{publisher}, #{year}, #{pages}."
       rescue => e
