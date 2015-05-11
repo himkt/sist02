@@ -39,6 +39,11 @@ naid = "40020388722"
 p Sist02::CiNii.article_ref(naid)
 #=> "近藤 宏. 臨床スポーツ鍼灸研究会(10)下肢のスポーツ障害 : 運動連鎖を応用した実践的アプローチ(1). Training journal. 2015, 37(4), p. 37-41."
 ```
+
+or
+
+![irb description](screen-shot/irb.png)
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
