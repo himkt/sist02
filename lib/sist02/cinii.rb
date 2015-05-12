@@ -23,7 +23,7 @@ module Sist02
         number = hash["prism:number"]
         start_p = hash["prism:startingPage"]
         end_p = hash["prism:endingPage"]
-        result = "#{creator}. #{title}. #{publication_name}. #{year}, #{volume}(#{number}), p. #{start_p}-#{end_p}."
+        result = "#{creator}. #{title}. #{publication_name}. #{year}, vol. #{volume}, no. #{number}, p. #{start_p}-#{end_p}."
       rescue => e
         result = e
       end
