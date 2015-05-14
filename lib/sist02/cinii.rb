@@ -7,25 +7,45 @@ module Sist02
     module_function
     def article_ref(naid)
       begin
-        html = open("http://ci.nii.ac.jp/naid/#{naid}.json").read
-        json = JSON.parser.new(html)
-        hash = json.parse["@graph"][0]
-        title =  hash["dc:title"][0]["@value"]
-        creator_raw = hash["dc:creator"]
+
+        bib = Hash.new
+
+        data = JSON.parse(open("http://ci.nii.ac.jp/naid/#{naid}.json").read)["@graph"][0]
+
+        language = data["dc:language"]
+
+        creator_raw = data["dc:creator"]
         creator = ''
+        separator = (language == 'JPN') ? "," : ";"
         creator_raw.each do |item|
-          creator += "#{item[0]["@value"]}, "
+          creator += "#{item[0]["@value"]}#{separator} "
         end
-        creator = creator.gsub(/\,\s$/, '')
-        publication_name = hash["prism:publicationName"][0]["@value"]
-        year = hash["dc:date"].match(/\d{4}/)
-        volume = hash["prism:volume"]
-        number = hash["prism:number"]
-        start_p = hash["prism:startingPage"]
-        end_p = hash["prism:endingPage"]
-        result = "#{creator}. #{title}. #{publication_name}. #{year}, vol. #{volume}, no. #{number}, p. #{start_p}-#{end_p}."
-      rescue => e
-        result = e
+        bib[:creator] = creator.sub(/\,\s$/,'')
+
+        title_data = data["dc:title"][0]
+        bib[:title] = title_data["@value"]
+
+        bib[:publication_name] = data["prism:publicationName"][0]["@value"]
+
+        bib[:year] = data["dc:date"].match(/\d{4}/)
+
+        bib[:volume] = "vol. #{data['prism:volume']}"
+
+        bib[:number] = "no. #{data['prism:number']}"
+
+        bib[:page] = "p. #{data['prism:startingPage']}-#{data['prism:endingPage']}"
+
+        result = ''
+        bib.each do |attr,value|
+          separator = (attr.to_s =~ /creator|title|publication_name/) ? '.' : ','
+          result += "#{value}#{separator} "
+        end
+        result = result.sub(/\,\s$/, '.')
+
+      rescue
+
+        puts 'error occured. failed to make bibliographic data'
+
       end
       return result
     end
