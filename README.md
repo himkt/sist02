@@ -38,6 +38,10 @@ p Sist02::CiNii.article_ref(naid)
 naid = "40020388722"
 p Sist02::CiNii.article_ref(naid)
 #=> "近藤 宏. 臨床スポーツ鍼灸研究会(10)下肢のスポーツ障害 : 運動連鎖を応用した実践的アプローチ(1). Training journal. 2015, 37(4), p. 37-41."
+
+ncid = "BB18507477"
+p Sist02::CiNii.book_ref(ncid)
+=> "まちライブラリー, マイクロ・ライブラリーサミット実行委員会, 礒井純充. マイクロ・ライブラリー : 人とまちをつなぐ小さな図書館. 学芸出版社, 2015, 238p."
 ```
 
 or
