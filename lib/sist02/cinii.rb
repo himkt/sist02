@@ -55,5 +55,22 @@ module Sist02
       end
       return result
     end
+
+    def d_paper_ref(naid)
+      begin
+        html = open("http://ci.nii.ac.jp/naid/#{naid}.json").read
+        json = JSON.parser.new(html)
+        hash = json.parse["@graph"][0]
+        author = hash["dc:creator"][0][0]["@value"]
+        title = hash["dc:title"][0]["@value"]
+        publisher = hash["dc:publisher"][0]["@value"]
+        year = hash["dc:date"].match(/\d{4}/)
+        result = "#{author}. #{title}. #{publisher}, #{year}, 博士論文."
+      rescue => e
+        result = e
+      end
+      return result
+    end
+
   end
 end
