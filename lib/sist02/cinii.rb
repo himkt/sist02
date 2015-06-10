@@ -56,7 +56,7 @@ module Sist02
       return result
     end
 
-    def d_paper_ref(naid)
+    def thesis_ref(naid)
       begin
         html = open("http://ci.nii.ac.jp/naid/#{naid}.json").read
         json = JSON.parser.new(html)

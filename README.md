@@ -47,7 +47,7 @@ p Sist02::CiNii.book_ref(ncid)
 
 # 博士論文
 naid = "500000587337"
-p Sist02::CiNii.d_paper_ref(naid)
+p Sist02::CiNii.thesis_ref(naid)
 => "今井, 福司. 日本占領期におけるアメリカ学校図書館の導入 : 日米の学校教育実践における学校図書館の位置づけ. 東京大学, 2013, 博士論文."
 
 ```
