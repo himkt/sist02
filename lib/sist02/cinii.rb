@@ -43,7 +43,7 @@ module Sist02
       return result
     end
 
-    def dissertations_ref naid
+    def dissertation_ref naid
       
       begin
 

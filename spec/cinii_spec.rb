@@ -19,7 +19,7 @@ describe "CiNii" do
   it 'test_dissertations' do
     # 博士論文
     naid = "500000587337"
-    Sist02::CiNii.dissertations_ref(naid)
+    Sist02::CiNii.dissertation_ref(naid)
   end
 
 end
