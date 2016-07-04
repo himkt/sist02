@@ -1,5 +1,13 @@
 # Sist02
 
+[![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
+[![Website](https://img.shields.io/website-up-down-green-red/http/shields.io.svg?maxAge=2592000)](https://rubygems.org/gems/sist02)
+[![GitHub issues](https://img.shields.io/github/issues/himkt/sist02.svg)](https://github.com/himkt/sist02/issues)
+[![GitHub stars](https://img.shields.io/github/stars/himkt/sist02.svg)](https://github.com/himkt/sist02/stargazers) 
+[![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg?maxAge=2592000)](https://github.com/himkt/sist02) 
+[![GitHub commits](https://img.shields.io/github/commits-since/SubtitleEdit/subtitleedit/3.4.7.svg?maxAge=2592000)](https://github.com/himkt/sist02)
+
+
 This gem provides easy way to make SIST-02 formed references.
 
 Sist02::CiNii is based on [caps](https://github.com/Yousack/caps)
