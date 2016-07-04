@@ -12,6 +12,14 @@ This gem provides easy way to make SIST-02 formed references.
 
 Sist02::CiNii is based on [caps](https://github.com/Yousack/caps)
 
+
+## Related works
+
+Command line interface is [here](https://github.com/himkt/sist02-cli).
+
+Web application is [here](https://github.com/himkt/sist02-web) and available on [here](https://sist02-web.herokuapp.com/).
+
+
 ## Installation
 
 Add this line to your application's Gemfile:
